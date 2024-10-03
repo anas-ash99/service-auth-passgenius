@@ -5,7 +5,6 @@ import com.passgenius.serviceauth.exceptions.IncorrectPassowrdrException;
 import com.passgenius.serviceauth.exceptions.InvalidAuthorizationHeaderException;
 import com.passgenius.serviceauth.exceptions.UserAlreadyExistException;
 import com.passgenius.serviceauth.exceptions.UserNotFoundException;
-import com.passgenius.serviceauth.models.User2;
 import com.passgenius.serviceauth.repository.UserRepository;
 import com.passgenius.serviceauth.utils.JwtUtil;
 import com.passgenius.user.User;
@@ -26,7 +25,7 @@ public class UserService {
     PasswordService passwordEncoder;
     @Autowired
     JwtUtil jwtUtil;
-    public void registerUser(User2 user2, String authorizationHeader)
+    public void registerUser(User user2, String authorizationHeader)
             throws UserAlreadyExistException, InvalidAuthorizationHeaderException {
         String password = extractPassword(authorizationHeader);
         var existingUser = userRepository.findByUsername(user2.getUsername()).orElse(null);
