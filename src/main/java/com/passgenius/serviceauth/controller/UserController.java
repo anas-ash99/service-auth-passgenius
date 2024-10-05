@@ -6,8 +6,8 @@ import com.passgenius.serviceauth.exceptions.IncorrectPassowrdrException;
 import com.passgenius.serviceauth.exceptions.InvalidAuthorizationHeaderException;
 import com.passgenius.serviceauth.exceptions.UserAlreadyExistException;
 import com.passgenius.serviceauth.exceptions.UserNotFoundException;
+import com.passgenius.serviceauth.models.User;
 import com.passgenius.serviceauth.service.UserService;
-import com.passgenius.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +21,12 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(
-            @RequestBody User user2,
+            @RequestBody User user,
             @RequestHeader("Authorization") String authorizationHeader
     ) {
 
         try {
-            userService.registerUser(user2, authorizationHeader);
+            userService.registerUser(user, authorizationHeader);
         } catch (UserAlreadyExistException e) {
             return ResponseEntity.badRequest().body("User already exist");
         } catch (InvalidAuthorizationHeaderException e) {
