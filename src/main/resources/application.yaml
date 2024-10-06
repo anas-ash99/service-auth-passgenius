@@ -5,10 +5,6 @@ spring:
     name: service-auth
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: pass-genius
-  logging:
-    level:
-      org.springframework: DEBUG
+      uri: mongodb://mongo:27017/pass-genius
+
 
