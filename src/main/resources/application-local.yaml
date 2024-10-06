@@ -1,0 +1,5 @@
+# apply this configuration by adding SPRING_PROFILES_ACTIVE=local as environmental variable
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/pass-genius
