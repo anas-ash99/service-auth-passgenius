@@ -1,6 +1,7 @@
 package com.passgenius.serviceauth.repository;
 
-import com.passgenius.user.User;
+
+import com.passgenius.serviceauth.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
